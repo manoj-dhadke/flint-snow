@@ -33,7 +33,7 @@ begin
     @log.info(response_body)
     if response_exitcode == 0
         @log.info("Success in executing servicenow Connector, where exitcode :: #{response_exitcode} | message :: #{response_message}")
-        @output.set('result', response_body)
+        @output.setraw('result', response_body)
         @log.trace("Finished executing 'servicenow' flintbit with success...")
     else
         @log.error("Failure in executing servicenow Connector where, exitcode :: #{response_exitcode} | message :: #{response_message}")

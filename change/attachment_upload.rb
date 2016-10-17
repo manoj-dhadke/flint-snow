@@ -1,5 +1,5 @@
 # begin
-@log.trace("Started executing 'flint-snow:problem:attachment_upload.rb' flintbit...")
+@log.trace("Started executing 'flint-snow:change:attachment_upload.rb' flintbit...")
 begin
     # Flintbit Input Parameters
     @connector_name = @input.get('connector_name') # Name of the ServiceNow Connector
@@ -10,7 +10,7 @@ begin
     end
    end
     @action = 'upload-attachment'                     # Contains the name of the operation: list
-    @tableName = 'problem'
+    @tableName = 'change_request'
     @sysid = @input.get('sys-id')
     @filename = @input.get('file-name')
    # @sysparm_display_value = @input.get('sysparm_display_value')
@@ -32,7 +32,7 @@ begin
     response_body = response.get('body')               
     id = response.get('result.sys_id')          
         @log.info(response_body)
-        @log.info("SYS_ID :: #{id}")
+       # @log.info("SYS_ID :: #{id}")
   
    if response_exitcode == 0
         @log.info("Success in executing serviceNow Connector, where exitcode :: #{response_exitcode} | message :: #{response_message}")
@@ -47,5 +47,5 @@ rescue Exception => e
     @log.error(e.message)
     @output.set('exit-code', 1).set('message', e.message)
 end
-@log.trace("Finished executing 'flint-snow:problem:attachment_upload.rb' flintbit...")
+@log.trace("Finished executing 'flint-snow:change:attachment_upload.rb' flintbit...")
 # end
