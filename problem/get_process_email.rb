@@ -1,5 +1,5 @@
 require 'json'
-@log.info("Starting called flintbit incident:get_process_email.rb")
+@log.info("Starting called flintbit problem:get_process_email.rb")
 data = @input.get("result")
 
  data.each do |data|
