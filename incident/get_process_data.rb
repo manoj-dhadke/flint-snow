@@ -4,9 +4,10 @@
 
         if ((!data["assignment_group"].nil?) && (!data["assignment_group"]["value"].nil?))
 	data["assignment_group"] = data["assignment_group"]["value"]
+        @log.info("$$$$$$$$$ :: #{data["assignment_group"]}")
         response = @call.bit("flint-snow:incident:list_assignmentgroup.rb").set("sys-id", data["assignment_group"]).sync
         data["assignment_group"]=response.get("name")	
-        #@log.info("#{data["assignment_group"]}")
+        @log.info("$$$$$$$ :: #{data["assignment_group"]}")
         end
 
         if ((!data["assigned_to"].nil?) && (!data["assigned_to"]["value"].nil?))
@@ -75,11 +76,11 @@
         data["std_change_producer_version"]=response.get("name")
         end
 
-        if ((!data["u_resolver_user"].nil?) && (!data["u_resolver_user"]["value"].nil?))
-        data["u_resolver_user"] = data["u_resolver_user"]["value"]
-	@log.info("resolved_by #{data["u_resolver_user"]}")
-        response = @call.bit("flint-snow:incident:list_resolved_by.rb").set("sys-id", data["u_resolver_user"]).sync
-        data["u_resolver_user"]=response.get("name")
+        if ((!data["u_resolver"].nil?) && (!data["u_resolver"]["value"].nil?))
+        data["u_resolver"] = data["u_resolver"]["value"]
+	@log.info("resolved_by #{data["u_resolver"]}")
+        response = @call.bit("flint-snow:incident:list_resolved_by.rb").set("sys-id", data["u_resolver"]).sync
+        data["u_resolver"]=response.get("name")
         end
 
         if ((!data["business_service"].nil?) && (!data["business_service"]["value"].nil?))

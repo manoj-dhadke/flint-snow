@@ -23,21 +23,23 @@ state :: #{data}")
                           .set('data', data)
                           .set('sys-id', @sysid)
                           .sync
-            
 
+       
     # ServiceNow Connector Response Meta Parameters
     response_exitcode = response.exitcode           # Exit status code
     response_message = response.message             # Execution status message  
-    
+ 
     # ServiceNow Connector Response Parameters
-  response_body = response.get('body')
-
+    response_body = response.get('body')
+ 
     if response_exitcode == 0
         result = @util.json(response_body)
-        
+
         @log.info("Success in executing serviceNow Connector, where exitcode :: #{response_exitcode} | message :: #{response_message}")
-        response= @call.bit("flint-snow:incident:get_process_data.rb").setraw(response_body).sync
-        @output.set('result', response.get('data'))
+        #response= @call.bit("flint-snow:incident:get_process_data.rb").setraw(response_body).sync
+	response=@call.bit("flint-snow:incident:update_get.rb").setraw(response_body).sync
+        #@output.set('result', response.get('data'))
+	@output.set('result', response.get('result')).set('activity', response.get('activity')).set('attachment', response.get('attachment')).set('email', response.get('email'))
         @log.trace("Finished executing 'serviceNow' flintbit with success...")
     else
         @log.error("Failure in executing serviceNow Connector where, exitcode :: #{response_exitcode} | message :: #{response_message}")

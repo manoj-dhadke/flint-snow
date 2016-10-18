@@ -9,8 +9,7 @@ begin
        @connector_name = 'servicenow'
     end
    end
-    @action = 'get-records'                     # Contains the name of the operation: list
-    # optional
+    @action = 'find-record'                     # Contains the name of the operation: list
     @tableName = 'cmdb_ci'
     @sysid = @input.get("sys-id")
     @sysparm_display_value =@input.get('sysparm_display_value')
@@ -23,12 +22,13 @@ begin
                           .set('sys-id', @sysid)
                           .set('sysparm_display_value', @sysparm_display_value)
                           .sync
+
     # ServiceNow Connector Response Meta Parameters
     response_exitcode = response.exitcode           # Exit status code
     response_message = response.message             # Execution status message
 
     # ServiceNow Connector Response Parameters
-  response_body = response.get('body')
+    response_body = response.get('body')
   
     if response_exitcode == 0
     	result = @util.json(response_body)

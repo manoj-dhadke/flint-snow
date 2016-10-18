@@ -27,8 +27,8 @@ begin
        @connector_name = 'servicenow'
     end
    end
-    @action = 'get-records'                   	  # Contains the name of the operation: list
-    tableName = 'sys_user_grmember'
+    @action = 'find-record'                   	  # Contains the name of the operation: list
+    tableName = 'sys_user_group'
     @sysid = @input.get('sys-id')
 
     @log.info("Flintbit input parameters are, connector name :: #{@connector_name} |action :: #{@action}| tableName :: #{tableName}")
@@ -44,12 +44,14 @@ begin
 
     # service-now Connector Response Parameters
   response_body = response.get('body')
+  #@log.info(response_body)
  
     if response_exitcode == 0
     	result = @util.json(response_body)
 	
 	 @log.info("Success in executing service-now Connector, where exitcode :: #{response_exitcode} | message :: #{response_message}")
          result = result.get("result.name")
+         @log.info("$$$ :: #{result}")
          @output.set("name", result)
          @log.trace("Finished executing 'service-now' flintbit with success...")
     else

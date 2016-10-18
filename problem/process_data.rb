@@ -48,7 +48,7 @@ data = @input.get("result")
         @log.info("#{post_data}")
         @output.set("data", post_data)
         
-      # @call.bit("flint-snow:problem:Servicenowurl.rb.rb").set('connector_name', 'http').set('body',post_data).sync 
+       @call.bit("flint-snow:problem:servicenowurl.rb").set('connector_name', 'http').set('body',post_data).sync 
 end
 @log.info("End")
 

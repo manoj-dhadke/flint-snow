@@ -38,7 +38,7 @@ data = @input.get("result")
 	post_data["escalation"] = data["escalation"] 
         
           @log.info("#{post_data}")
-          @call.bit("flint-snow:incident:Servicenowurl.rb").set("connector_name", "http").set('body',post_data).sync
+          @call.bit("flint-snow:incident:servicenowurl.rb").set("connector_name", "http").set('body',post_data).sync
 
 @log.info("End :: flint-snow:incident:process_data.rb")
       
