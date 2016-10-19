@@ -33,6 +33,7 @@ data = @input.get("result")
 	post_data["number"] = data["number"]
 	post_data["sys_updated_by"] = data["sys_updated_by"]
 	post_data["incident_state"] = data["incident_state"]
+        post_data["state"] = data["state"]
 	post_data["correlation_id"] = data["correlation_id"]
 	post_data["category"] = data["category"] 
 	post_data["escalation"] = data["escalation"] 
