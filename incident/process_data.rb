@@ -37,7 +37,8 @@ data = @input.get("result")
 	post_data["correlation_id"] = data["correlation_id"]
 	post_data["category"] = data["category"] 
 	post_data["escalation"] = data["escalation"] 
-        
+        post_data["opened_at"] = data["opened_at"]
+
           @log.info("#{post_data}")
           @call.bit("flint-snow:incident:servicenowurl.rb").set("connector_name", "http").set('body',post_data).sync
 
