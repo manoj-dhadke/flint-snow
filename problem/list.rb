@@ -14,7 +14,7 @@ begin
     @sysparm_limit  = @input.get('sysparm_limit')
     @sysparm_query = @input.get('sysparm_query')
     @sysparm_display_value =@input.get('sysparm_display_value')
-    sysparm_fields = "sys_id, number, closed_at, priority, incident_state, assigned_to, category ,correlation_id, sys_updated_by, sys_updated_on ,caller_id, assignment_group, short_description, description, cmdb_ci"
+    sysparm_fields = "sys_id, number, closed_at, priority, incident_state, State, assigned_to, category ,correlation_id, sys_updated_by, sys_updated_on ,caller_id, assignment_group, short_description, description, cmdb_ci, opened_at"
 
     @log.info("Flintbit input parameters are, connector name :: #{@connector_name} |action :: #{@action}| tableName :: #{@tableName}")
 

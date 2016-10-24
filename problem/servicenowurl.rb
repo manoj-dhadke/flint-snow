@@ -1,5 +1,5 @@
 # begin
-@log.trace("Started executing 'flint-snow:servicenow:servicenowurl.rb' flintbit...")
+@log.trace("Started executing 'flint-snow:problem:servicenowurl.rb' flintbit...")
 begin
     # Flintbit Input Parameters
     # mandatory
@@ -11,7 +11,7 @@ begin
     port = @config.global("flintserve.port")
    #sync_url = @config.global("flintserve.sync_url")
 
-    request_url = protocol+'://'+hostname+':'+port.to_s+'/serviceNowIncident/syncIncident'              # HTTP Request URL
+    request_url = protocol+'://'+hostname+':'+port.to_s+'serviceNowProblem/syncProblem'              # HTTP Request URL
     request_body = @input.get('body')             		# HTTP Request Body
     key = @config.global("flintserve.key")
     request_headers = ["flint-key:#{key}"]     		        # HTTP Request Headers
@@ -58,5 +58,5 @@ rescue Exception => e
     @log.error(e.message)
     @output.set('exit-code', 1).set('message', e.message)
 end
-@log.trace("Finished execution 'flint-snow:servicenow:servicenowurl.rb' flintbit...")
+@log.trace("Finished execution 'flint-snow:problem:servicenowurl.rb' flintbit...")
 # end

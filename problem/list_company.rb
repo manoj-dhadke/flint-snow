@@ -20,14 +20,14 @@ begin
                           .set('action', @action)
                           .set('table-name', tableName)
                           .set('sys-id', @sysid)
-			                    .set('sysparm_display_value',@sysparm_display_value)
+			  .set('sysparm_display_value',@sysparm_display_value)
                           .sync
     # ServiceNow Connector Response Meta Parameters
     response_exitcode = response.exitcode           # Exit status code
     response_message = response.message             # Execution status message
 
     # ServiceNow Connector Response Parameters
-  response_body = response.get('body')
+    response_body = response.get('body')
 
     if response_exitcode == 0
     	result = @util.json(response_body)
