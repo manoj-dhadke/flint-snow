@@ -45,7 +45,7 @@ data = @input.get("result")
 	post_data["correlation_id"] = post_data["correlation_id"]
 	post_data["category"] = post_data["category"] 
         post_data["comments"]= post_data["comments"]
-        post_data["opened_at"] = data["opened_at"]
+        post_data["opened_at"] = post_data["opened_at"]
 
         @log.info("#{post_data}")
         @output.set("data", post_data)
