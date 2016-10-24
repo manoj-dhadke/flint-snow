@@ -11,7 +11,8 @@ begin
     port = @config.global("flintserve.port")
    #sync_url = @config.global("flintserve.sync_url")
 
-    request_url = protocol+'://'+hostname+':'+port.to_s+'serviceNowProblem/syncProblem'              # HTTP Request URL
+    request_url = protocol+'://'+hostname+':'+port.to_s+'/serviceNowProblem/syncProblem'              # HTTP Request URL
+    @log.info("#{request_url}")
     request_body = @input.get('body')             		# HTTP Request Body
     key = @config.global("flintserve.key")
     request_headers = ["flint-key:#{key}"]     		        # HTTP Request Headers
