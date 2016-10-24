@@ -33,7 +33,8 @@ begin
 	 @log.info("Success in executing serviceNow Connector, where exitcode :: #{response_exitcode} | message :: #{response_message}")
          #@log.info("#{result}")
         # response = @call.bit("serviceNow:incident:process_assigned_to.rb").setraw(response_body).sync
-         result = result.get("result.name")     
+         result = result.get("result.name")  
+         @log.info("#{result}")   
          @output.set("name", result)
          @log.trace("Finished executing 'serviceNow' flintbit with success...")
     else

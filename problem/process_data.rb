@@ -9,27 +9,21 @@ data = @input.get("result")
         if ((!post_data["assignment_group"].nil?) && (!post_data["assignment_group"]["value"].nil?))
 	post_data["assignment_group"] = post_data["assignment_group"]["value"]
         response = @call.bit("flint-snow:problem:list_assignmentgroup.rb").set("sys-id", post_data["assignment_group"]).sync
-           if !response.get("name").nil?
         post_data["assignment_group"]=response.get("name")
-           end
         end
 
         if ((!post_data["assigned_to"].nil?) && (!post_data["assigned_to"]["value"].nil?))           
         post_data["assigned_to"] = post_data["assigned_to"]["value"]
         @log.info("VALUE :: #{post_data["assigned_to"]}")
         response = @call.bit("flint-snow:problem:list_assigned_to_user.rb").set("sys-id", post_data["assigned_to"]).sync
-           if !response.get("name").nil?
         post_data["assigned_to"]=response.get("name")
-      	   end
         end
 
         if ((!post_data["cmdb_ci"].nil?) && (!post_data["cmdb_ci"]["value"].nil?))
         post_data["cmdb_ci"] = post_data["cmdb_ci"]["value"]
         @log.info("VALUE CMDB_CI :: #{post_data["cmdb_ci"]}")
         response = @call.bit("flint-snow:problem:list_configuration_item.rb").set("sys-id", post_data["cmdb_ci"]).sync
-           if !response.get("name").nil?
         post_data["cmdb_ci"]=response.get("name")
-           end
         end
 
         post_data["priority"] = post_data["priority"]
