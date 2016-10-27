@@ -10,10 +10,11 @@
         end
 
         if ((!data["assigned_to"].nil?) && (!data["assigned_to"]["value"].nil?))
-        data["assigned_to"] = data["assigned_to"]["value"]
-        response = @call.bit("flint-snow:problem:list_assigned_to_user.rb").set("sys-id", data["assigned_to"]).sync
-        data["assigned_to"]=response.get("name")
-	#@log.info(data["assignment_group"])
+        data["assigned_to"] = data["assigned_to"]
+        @log.info("ASSIGNED_TO VALUE #{data["assigned_to"]["value"]}")
+        #response = @call.bit("flint-snow:problem:list_assigned_to_user.rb").set("sys-id", data["assigned_to"]).sync
+        #data["assigned_to"]=response.get("name")
+	@log.info(data["assigned_to"])
       	end
 
       	if ((!data["opened_by"].nil?) && (!data["opened_by"]["value"].nil?))
