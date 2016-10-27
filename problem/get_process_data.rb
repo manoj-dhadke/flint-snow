@@ -113,12 +113,7 @@
         response = @call.bit("flint-snow:problem:list_rfc.rb").set("sys-id", data["rfc"]).sync
         data["rfc"]=response.get("name")
         end
-        if ((!data["change_request"].nil?) && (!data["change_request"]["value"].nil?))
-	data["change_request"] = data["change_request"]["value"]
-        #response = @call.bit("flint-snow:problem:list_assignmentgroup.rb").set("sys-id", data["assignment_group"]).sync
-        #data["assignment_group"]=response.get("name")
-        @log.info(data["change_request"])
-        end
+ 
 
         response1 = @call.bit("flint-snow:problem:list_activity.rb").set("sys-id",data["sys_id"]).sync
         response2 = @call.bit("flint-snow:problem:list_attachment.rb").set("sys-id",data["sys_id"]).sync

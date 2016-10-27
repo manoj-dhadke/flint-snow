@@ -34,7 +34,7 @@ begin
     	result = @util.json(response_body)
 	
 	 @log.info("Success in executing serviceNow Connector, where exitcode :: #{response_exitcode} | message :: #{response_message}")
-         result = result.get("result.name")
+         result = result.get("result.number")
          @output.set("name", result)
          @log.trace("Finished executing 'serviceNow' flintbit with success...")
     else
