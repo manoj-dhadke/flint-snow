@@ -10,7 +10,6 @@ begin
     end
    end
     @action = 'find-record'                     # Contains the name of the operation: list
-    # optional
     @tableName = 'change_request'
     @sysid = @input.get("sys-id")
     @sysparm_display_value =@input.get('sysparm_display_value')

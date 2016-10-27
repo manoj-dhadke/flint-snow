@@ -11,10 +11,9 @@
 
         if ((!data["assigned_to"].nil?) && (!data["assigned_to"]["value"].nil?))
         data["assigned_to"] = data["assigned_to"]["value"]
-        #@log.info("ASSIGNED_TO VALUE #{data["assigned_to"]["value"]}")
-        #response = @call.bit("flint-snow:problem:list_assigned_to_user.rb").set("sys-id", data["assigned_to"]).sync
-        #data["assigned_to"]=response.get("name")
-	@log.info("#{data["assigned_to"]}")
+        response = @call.bit("flint-snow:problem:list_assigned_to_user.rb").set("sys-id", data["assigned_to"]).sync
+        data["assigned_to"]=response.get("name")
+	#@log.info(data["assignment_group"])
       	end
 
       	if ((!data["opened_by"].nil?) && (!data["opened_by"]["value"].nil?))
@@ -110,10 +109,16 @@
 
         if ((!data["rfc"].nil?) && (!data["rfc"]["value"].nil?))
         data["rfc"] = data["rfc"]["value"]
+        @log.info("22222222222222222  #{data["rfc"]}")
         response = @call.bit("flint-snow:problem:list_rfc.rb").set("sys-id", data["rfc"]).sync
         data["rfc"]=response.get("name")
         end
- 
+         
+	data["parent"] = data["parent"]
+        #response = @call.bit("flint-snow:problem:list_assignmentgroup.rb").set("sys-id", data["assignment_group"]).sync
+        #data["assignment_group"]=response.get("name")
+        @log.info("11111111111111  #{data["parent"]}")
+        
 
         response1 = @call.bit("flint-snow:problem:list_activity.rb").set("sys-id",data["sys_id"]).sync
         response2 = @call.bit("flint-snow:problem:list_attachment.rb").set("sys-id",data["sys_id"]).sync
