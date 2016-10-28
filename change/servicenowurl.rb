@@ -1,5 +1,5 @@
 # begin
-@log.trace("Started executing 'flint-snow:problem:servicenowurl.rb' flintbit...")
+@log.trace("Started executing 'flint-snow:change:servicenowurl.rb' flintbit...")
 begin
     # Flintbit Input Parameters
     # mandatory
@@ -59,5 +59,5 @@ rescue Exception => e
     @log.error(e.message)
     @output.set('exit-code', 1).set('message', e.message)
 end
-@log.trace("Finished execution 'flint-snow:problem:servicenowurl.rb' flintbit...")
+@log.trace("Finished execution 'flint-snow:change:servicenowurl.rb' flintbit...")
 # end
