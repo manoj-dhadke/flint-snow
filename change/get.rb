@@ -29,7 +29,7 @@ begin
 
     # ServiceNow Connector Response Parameters
     response_body = response.get('body')            
-
+    
     if response_exitcode == 0
         result = @util.json(response_body)       
 

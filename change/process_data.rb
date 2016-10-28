@@ -36,14 +36,18 @@ data = @input.get("result")
         post_data["short_description"] = post_data["short_description"]
         post_data["description"] = post_data["description"]
 	post_data["closed_at"] = post_data["closed_at"]
+        post_data["opened_at"] = post_data["opened_at"]
 	post_data["sys_updated_on"] = post_data["sys_updated_on"]
 	post_data["sys_id"] = post_data["sys_id"]
 	post_data["number"] = post_data["number"]
 	post_data["sys_updated_by"] = post_data["sys_updated_by"]
 	post_data["incident_state"] = post_data["incident_state"]
+        post_data["state"] = post_data["state"]
 	post_data["correlation_id"] = post_data["correlation_id"]
 	post_data["category"] = post_data["category"] 
         post_data["comments"]= post_data["comments"]
+        post_data["start_date"]= post_data["start_date"]
+        post_data["end_date"]= post_data["end_date"]
 
         @log.info("#{post_data}")
         @output.set("data", post_data)
