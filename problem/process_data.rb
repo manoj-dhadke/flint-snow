@@ -26,6 +26,13 @@ data = @input.get("result")
         post_data["cmdb_ci"]=response.get("name")
         end
 
+        if ((!post_data["opened_by"].nil?) && (!post_data["opened_by"]["value"].nil?))           
+        post_data["opened_by"] = post_data["opened_by"]["value"]
+        @log.info("VALUE :: #{post_data["opened_by"]}")
+        response = @call.bit("flint-snow:problem:list_assigned_to_user.rb").set("sys-id", post_data["opened_by"]).sync
+        post_data["opened_by"]=response.get("name")
+        end
+
         post_data["priority"] = post_data["priority"]
         post_data["short_description"] = post_data["short_description"]
         post_data["description"] = post_data["description"]
@@ -40,7 +47,6 @@ data = @input.get("result")
 	post_data["category"] = post_data["category"] 
         post_data["comments"]= post_data["comments"]
         post_data["opened_at"] = post_data["opened_at"]
-        post_data["opened_by"] = post_data["opened_by"]
 
         @log.info("#{post_data}")
         @output.set("data", post_data)
