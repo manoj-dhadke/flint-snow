@@ -2,7 +2,7 @@
  
  data = @input.get("result")
  post_data = {}
- post_data["comments"] = data["comments"].gsub(/[\n]/, ' ')
+ post_data["work_around"] = data["work_around"].gsub(/[\n]/, ' ')
  post_data["work_notes"] = data["work_notes"].gsub(/[\n]/, ' ')
  
  
