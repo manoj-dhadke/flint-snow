@@ -10,7 +10,7 @@ begin
     end
    end
     @action = 'find-record'                     # Contains the name of the operation: list
-    @tableName = 'incident'
+    @tableName = 'problem'
     @sysid = @input.get('sys-id')
     @sysparm_display_value = @input.get('sysparm_display_value')
 

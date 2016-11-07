@@ -11,7 +11,7 @@ begin
     end
    end
     @action = 'update-record'                     
-    @tableName = 'incident' 
+    @tableName = 'problem' 
     @sysid  = @input.get('sys-id')
     @sysparm_display_value = @input.get('sysparm_display_value')
     data = @input.get('data')
