@@ -1,19 +1,18 @@
 =begin
-@connector_name = 'service-now' 
-@action = 'get-assignment-user-group'                     
-tableName = 'sys_user_grmember'
- @log.info("Flintbit input parameters are, connector name :: #{@connector_name} |action :: #{@action}")
-         response = @call.connector(@connector_name)
-                          .set('table-name', tableName)
-                          .set('action', @action)
-                          .sync
-     #@log.info("#{response}")
-    response_exitcode = response.exitcode           # Exit status code
-    @log.info("#{response_exitcode}")
-    response_message = response.message             # Execution status message
-    response_body = response.get('body')            # Response body
-    result = @util.json(response_body)
-    @call.bit("service-now:incident:process_assignmentgroup.rb").setraw(response_body).sync  
+#
+#  INFIVERVE TECHNOLOGIES PTE LIMITED CONFIDENTIAL
+#  _______________________________________________
+# 
+#  (C) INFIVERVE TECHNOLOGIES PTE LIMITED, SINGAPORE
+#  All Rights Reserved.
+#  Product / Project: Flint IT Automation Platform
+#  NOTICE:  All information contained herein is, and remains
+#  the property of INFIVERVE TECHNOLOGIES PTE LIMITED.
+#  The intellectual and technical concepts contained
+#  herein are proprietary to INFIVERVE TECHNOLOGIES PTE LIMITED.
+#  Dissemination of this information or any form of reproduction of this material
+#  is strictly forbidden unless prior written permission is obtained
+#  from INFIVERVE TECHNOLOGIES PTE LIMITED, SINGAPORE.
 =end
 
 # begin
